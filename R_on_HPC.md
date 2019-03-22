@@ -4,14 +4,21 @@ author:
 date: 
 autosize: true
 
-First Slide
+Outline
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- What is high performance computing?
+- Overview of UCSB resources
+- Accessing pod and knot
+- Running jobs
+  - queues
+- Some specifics for R
+  - versions
+  - libraries
+- An example
+  - moving files
+  - job status
+- Give it a try
 
 Slide With Code
 ========================================================

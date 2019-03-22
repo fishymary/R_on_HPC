@@ -1,7 +1,7 @@
-R_on_HPC
+High Performance Computing and R at UC Santa Barbara
 ========================================================
-author: 
-date: 
+author: Mary Donovan
+date: April 9, 2019
 autosize: true
 
 Outline
@@ -11,14 +11,35 @@ Outline
 - Overview of UCSB resources
 - Accessing pod and knot
 - Running jobs
-  - queues
 - Some specifics for R
+- An example
+- Give it a try
+
+What is high performance computing?
+========================================================
+
+Overview of UCSB resources
+========================================================
+
+Accessing pod and knot
+========================================================
+
+Running jobs
+========================================================
+  - queues
+
+Some specifics for R
+========================================================
   - versions
   - libraries
-- An example
+
+An example
+========================================================
   - moving files
   - job status
-- Give it a try
+
+Give it a try
+========================================================
 
 Slide With Code
 ========================================================

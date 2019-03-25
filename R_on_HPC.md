@@ -1,4 +1,4 @@
-High Performance Computing with R @ UC Santa Barbara
+High Performance Computing and R at UC Santa Barbara
 ========================================================
 author: Mary Donovan
 date: April 9, 2019

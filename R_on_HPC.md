@@ -17,16 +17,35 @@ Outline
 
 What is high performance computing?
 ========================================================
+Multiple computer notes, with fast interconnect, where each node consists of many CPU cores
+Allows multiple users to run computations simulataneously
+Allows single users to access multiple cores and multiple nodes for parallel jobs
+Can have high end GPUs (large amounts of memory)
+
+What is high performance computing?
+========================================================
+Why and when to use HPC? 
+- Designed for when computational problems are either too large or take too long for standard computers
+- Parallel computing
+
+
+
 
 Overview of UCSB resources
 ========================================================
+Enterprise Technology Services, Center for Scientific Computing, (MRL?)
 pod and knot
 
 Accessing pod and knot
 ========================================================
+accounts
+remote access - command line interface
+login node versus compute nodes - don't run stuff on the login node! 
+talk about storage systems?
 
 Running jobs
 ========================================================
+  - scheduler
   - queues
 
 Some specifics for R
@@ -36,8 +55,11 @@ Some specifics for R
 
 An example
 ========================================================
-  - moving files
-  - job status
+1. transfer input files
+2. create a submission script
+3. submit your job and check the status
+4. scheduler runs computation on compute nodes
+5. transfer output files 
 
 Give it a try
 ========================================================

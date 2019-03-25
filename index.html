@@ -810,6 +810,23 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>What is high performance computing?</h3>
 <div class="slideContent" >
+<p>Multiple computer notes, with fast interconnect, where each node consists of many CPU cores<br/>
+Allows multiple users to run computations simulataneously<br/>
+Allows single users to access multiple cores and multiple nodes for parallel jobs<br/>
+Can have high end GPUs (large amounts of memory)  </p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>What is high performance computing?</h3>
+<div class="slideContent" >
+<p>Why and when to use HPC? </p>
+
+<ul>
+<li>Designed for when computational problems are either too large or take too long for standard computers</li>
+<li>Parallel computing</li>
+</ul>
 
 </div>
 
@@ -817,7 +834,8 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Overview of UCSB resources</h3>
 <div class="slideContent" >
-<p>pod and knot</p>
+<p>Enterprise Technology Services, Center for Scientific Computing, (MRL?)<br/>
+pod and knot  </p>
 
 </div>
 
@@ -825,6 +843,10 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Accessing pod and knot</h3>
 <div class="slideContent" >
+<p>accounts<br/>
+remote access - command line interface<br/>
+login node versus compute nodes - don&#39;t run stuff on the login node!<br/>
+talk about storage systems?  </p>
 
 </div>
 
@@ -833,6 +855,7 @@ hljs.initHighlightingOnLoad();
 <h3>Running jobs</h3>
 <div class="slideContent" >
 <ul>
+<li>scheduler</li>
 <li>queues</li>
 </ul>
 
@@ -853,10 +876,13 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>An example</h3>
 <div class="slideContent" >
-<ul>
-<li>moving files</li>
-<li>job status</li>
-</ul>
+<ol>
+<li>transfer input files</li>
+<li>create a submission script</li>
+<li>submit your job and check the status</li>
+<li>scheduler runs computation on compute nodes</li>
+<li>transfer output files </li>
+</ol>
 
 </div>
 

@@ -1,4 +1,4 @@
-High Performance Computing and R at UC Santa Barbara
+High Performance Computing with R @ UC Santa Barbara
 ========================================================
 author: Mary Donovan
 date: April 9, 2019
@@ -20,6 +20,7 @@ What is high performance computing?
 
 Overview of UCSB resources
 ========================================================
+pod and knot
 
 Accessing pod and knot
 ========================================================

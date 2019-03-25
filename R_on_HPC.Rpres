@@ -20,6 +20,7 @@ What is high performance computing?
 
 Overview of UCSB resources
 ========================================================
+pod and knot
 
 Accessing pod and knot
 ========================================================

@@ -1,4 +1,4 @@
-High Performance Computing and R at UC Santa Barbara
+High Performance Computing with R @ UC Santa Barbara
 ========================================================
 author: Mary Donovan
 date: April 9, 2019
@@ -17,10 +17,10 @@ Outline
 
 What is high performance computing?
 ========================================================
-Multiple computer notes, with fast interconnect, where each node consists of many CPU cores
-Allows multiple users to run computations simulataneously
-Allows single users to access multiple cores and multiple nodes for parallel jobs
-Can have high end GPUs (large amounts of memory)
+Multiple computer notes, with fast interconnect, where each node consists of many CPU cores     
+Allows multiple users to run computations simulataneously  
+Allows single users to access multiple cores and multiple nodes for parallel jobs  
+Can have high end GPUs (large amounts of memory)  
 
 What is high performance computing?
 ========================================================
@@ -33,15 +33,15 @@ Why and when to use HPC?
 
 Overview of UCSB resources
 ========================================================
-Enterprise Technology Services, Center for Scientific Computing, (MRL?)
-pod and knot
+Enterprise Technology Services, Center for Scientific Computing, (MRL?)  
+pod and knot  
 
 Accessing pod and knot
 ========================================================
-accounts
-remote access - command line interface
-login node versus compute nodes - don't run stuff on the login node! 
-talk about storage systems?
+accounts  
+remote access - command line interface  
+login node versus compute nodes - don't run stuff on the login node!  
+talk about storage systems?  
 
 Running jobs
 ========================================================

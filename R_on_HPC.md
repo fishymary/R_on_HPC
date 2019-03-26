@@ -7,26 +7,29 @@ autosize: true
 Outline
 ========================================================
 
-- What is high performance computing?
-- Overview of UCSB resources
-- Accessing pod and knot
-- Running jobs
-- Some specifics for R
-- An example
-- Give it a try
+- What is high performance computing? (Sharon)
+- Overview of UCSB resources (Sharon)
+- Accessing pod and knot (Mary)
+- Running jobs (Mary)
+- Some specifics for R (Mary)
+- An example (Mary)
+- Give it a try (Mary)
+- Demo
 
 What is high performance computing?
 ========================================================
-- Multiple computer notes, with fast interconnect, where each node consists of many CPU cores 
+- Multiple computer nodes, with fast interconnect, where each node consists of many CPU cores 
 (aka "cluster")
 - Allows multiple users to run computations simulataneously  
 - Allows single users to access multiple cores and multiple nodes for parallel jobs  
-- Can have high end GPUs (large amounts of memory)  
+- Can have high end GPU nodes (specialized processors)
+- Can have large memory nodes (approx 1TB RAM)
 
 What is high performance computing?
 ========================================================
 Why and when to use HPC? 
-- Designed for when computational problems are either too large or take too long for standard computers
+- Designed for when computational problems are either too large, take too long, and/or require large file storage for standard computers  
+
 - When HPC might not be your solution:
   - There’s lots of interaction with the program, and single runs (You need a really powerful desktop)
   - You need 1,000 nodes, but only once every 3 months (Cloud resources may be your solution)
@@ -38,16 +41,31 @@ Why and when to use HPC?
 What is high performance computing?
 ========================================================
 - Serial vs. Parallel computing
+- Serial:
+  - one core on one node at a time
+- Parallel:
+  - many tasks can be performed at once that are independent
+  - or tasks can occur at the same time when 'boundry conditions' match up
+  
+Example: insert something here
+  
 
 
 Overview of UCSB resources
 ========================================================
-- Enterprise Technology Services, Center for Scientific Computing 
+- Center for Scientific Computing 
   - pod cluster (2018), knot cluster (2011), braid (condo clusters)
+- Letters and Science Information Technology 
+  - Aristotle cloud cluster 
+      - ideal for teaching e.g., Jypter notebooks
+      - presistent internet connection collected data
 - Extreme Science and Engineering Discovery Environment (XSEDE)
+- West coast consumer wide consumer grade GPU cluster (machine learning)
+  - Nautilus cluster
 - Triton Shared Computing Cluster (TSCC) at San Diego Supercomputing Center (SDSC)
 
-(more on CSC?)
+Please include in your papers! 
+"We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797."
 
 Overview of UCSB resources
 ========================================================
@@ -68,6 +86,12 @@ GPU Development node (P100, 1080Ti, Titan V)
 Guild (60 nodes)  
 Braid (120 nodes, also has GPUs)  
 
+Overview of UCSB resources
+========================================================
+More on storage:
+- limit to 4TB-10TB
+- and remove it when you're done! 
+
 Accessing pod and knot
 ========================================================
 - accounts  
@@ -83,12 +107,17 @@ Some basic commands
   - ls
   - mkdir
   - mv
+  - rm
   - nano
+(link to SC here)
+.bash_history (up arrow, stores 1000 lines) more .bash_history | grep qsub
 
 Running jobs
 ========================================================
   - scheduler
+    - fair share model
   - queues
+  `showq`
 
 Some specifics for R
 ========================================================
@@ -102,7 +131,7 @@ An example
 3. create a submission script
 4. submit your job and check the status
 5. scheduler runs computation on compute nodes
-6. transfer output files 
+6. examine and transfer output files 
 
 Give it a try
 ========================================================
@@ -117,7 +146,7 @@ Give it a try
 2. transfer input files  
   
 ```
-scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+scp file.txt user@pod.cnsi.ucsb.edu:file_copy.txt
 ```
 
 Lets also make a quick R code to run
@@ -165,3 +194,6 @@ Give it a try
 scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
 ```
 
+Remote login
+========================================================
+UCSB VPN

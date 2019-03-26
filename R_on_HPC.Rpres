@@ -183,8 +183,8 @@ qstat -u mdono
 
 Give it a try
 ========================================================
-5. wait for the magic  
-<iframe src="https://giphy.com/embed/hCiQVo1dzVwPu" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-waiting-hCiQVo1dzVwPu">via GIPHY</a></p>
+5. wait...
+<iframe src="https://giphy.com/embed/d2qJhxeaaWXPG" width="480" height="357" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/queue-d2qJhxeaaWXPG">via GIPHY</a></p>
 
 Give it a try
 ========================================================

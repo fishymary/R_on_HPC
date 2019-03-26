@@ -17,31 +17,73 @@ Outline
 
 What is high performance computing?
 ========================================================
-Multiple computer notes, with fast interconnect, where each node consists of many CPU cores     
-Allows multiple users to run computations simulataneously  
-Allows single users to access multiple cores and multiple nodes for parallel jobs  
-Can have high end GPUs (large amounts of memory)  
+- Multiple computer notes, with fast interconnect, where each node consists of many CPU cores 
+(aka "cluster")
+- Allows multiple users to run computations simulataneously  
+- Allows single users to access multiple cores and multiple nodes for parallel jobs  
+- Can have high end GPUs (large amounts of memory)  
 
 What is high performance computing?
 ========================================================
 Why and when to use HPC? 
 - Designed for when computational problems are either too large or take too long for standard computers
-- Parallel computing
+- When HPC might not be your solution:
+  - There’s lots of interaction with the program, and single runs (You need a really powerful desktop)
+  - You need 1,000 nodes, but only once every 3 months (Cloud resources may be your solution)
+  - You need 1,000 nodes, all the time (You need your own cluster)
+  - You work with sensitive data
 
+  
 
+What is high performance computing?
+========================================================
+- Serial vs. Parallel computing
 
 
 Overview of UCSB resources
 ========================================================
-Enterprise Technology Services, Center for Scientific Computing, (MRL?)  
-pod and knot  
+- Enterprise Technology Services, Center for Scientific Computing 
+  - pod cluster (2018), knot cluster (2011), braid (condo clusters)
+- Extreme Science and Engineering Discovery Environment (XSEDE)
+- Triton Shared Computing Cluster (TSCC) at San Diego Supercomputing Center (SDSC)
+
+(more on CSC?)
+
+Overview of UCSB resources
+========================================================
+![plot of chunk unnamed-chunk-2](R_on_HPC-figure/pod.png)
+***
+- Campus available cluster Knot (CentOS/RH 6):  
+110 node, ~1400 core system  
+4 ‘fat nodes’(1TB RAM)  
+GPU nodes (12 M2050’s) (now too old)  
+
+- Campus available cluster Pod (CentOS/RH7):  
+70 node, ~2600 core system  
+4 ‘fat nodes’(1TB RAM)  
+GPU nodes (3) (Quad NVIDIA V100/32 GB with NVLINK)  
+GPU Development node (P100, 1080Ti, Titan V)  
+
+- Condo clusters: (PI’s buy compute nodes)  
+Guild (60 nodes)  
+Braid (120 nodes, also has GPUs)  
 
 Accessing pod and knot
 ========================================================
-accounts  
-remote access - command line interface  
-login node versus compute nodes - don't run stuff on the login node!  
-talk about storage systems?  
+- accounts  
+Request access: http://csc.cnsi.ucsb.edu/acct
+- login node versus compute nodes - don't run stuff on the login node!  
+- talk about storage systems?  
+- command line interface  
+
+Some basic commands
+========================================================
+  - pwd
+  - cd
+  - ls
+  - mkdir
+  - mv
+  - nano
 
 Running jobs
 ========================================================
@@ -55,34 +97,23 @@ Some specifics for R
 
 An example
 ========================================================
-1. transfer input files
-2. create a submission script
-3. submit your job and check the status
-4. scheduler runs computation on compute nodes
-5. transfer output files 
+1. login to cluster
+2. transfer input files
+3. create a submission script
+4. submit your job and check the status
+5. scheduler runs computation on compute nodes
+6. transfer output files 
 
 Give it a try
 ========================================================
+1. login to cluster  
+```
+ssh username@pod.cnsi.ucsb.edu
+```
 
-Slide With Code
+Give it a try
 ========================================================
-
-
-```r
-summary(cars)
+2. transfer input files  
 ```
-
+scp file.txt user@knot.cnsi.ucsb.edu:file_copy.txt
 ```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-```
-
-Slide With Plot
-========================================================
-
-![plot of chunk unnamed-chunk-2](R_on_HPC-figure/unnamed-chunk-2-1.png)

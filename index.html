@@ -968,10 +968,74 @@ Request access: <a href="http://csc.cnsi.ucsb.edu/acct">http://csc.cnsi.ucsb.edu
 <h3>Give it a try</h3>
 <div class="slideContent" >
 <ol>
-<li>login to cluster<br/>
-<code>
-ssh username@pod.cnsi.ucsb.edu
-</code></li>
+<li>login to cluster </li>
+</ol>
+
+<pre><code>ssh username@pod.cnsi.ucsb.edu
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Give it a try</h3>
+<div class="slideContent" >
+<ol>
+<li>transfer input files<br/></li>
+</ol>
+
+<pre><code>scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+</code></pre>
+
+<p>Lets also make a quick R code to run</p>
+
+<pre><code>echo “data &lt;- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,”testcsv.csv”,row.names=F)“ &gt; myscript.R
+
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Give it a try</h3>
+<div class="slideContent" >
+<ol>
+<li>create a submission script<br/></li>
+</ol>
+
+<pre><code>nano submit.job
+#!/bin/bash -l
+#Serial (1 core on one node) job...
+#SBATCH --nodes=1 --ntasks-per-node=1
+
+cd $SLURM_SUBMIT_DIR
+module load R
+Rscript myscript.R
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Give it a try</h3>
+<div class="slideContent" >
+<ol>
+<li>submit your job and check the status<br/></li>
+</ol>
+
+<pre><code>sbatch submit.job
+qstat -u mdono
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Give it a try</h3>
+<div class="slideContent" >
+<ol>
+<li>wait for the magic<br/>
+[<iframe src="https://giphy.com/embed/hCiQVo1dzVwPu" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-waiting-hCiQVo1dzVwPu">via GIPHY</a></p>]<br/></li>
 </ol>
 
 </div>
@@ -981,11 +1045,11 @@ ssh username@pod.cnsi.ucsb.edu
 <h3>Give it a try</h3>
 <div class="slideContent" >
 <ol>
-<li>transfer input files<br/>
-<code>
-scp file.txt user@knot.cnsi.ucsb.edu:file_copy.txt
-</code></li>
+<li>transfer output files<br/></li>
 </ol>
+
+<pre><code>scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+</code></pre>
 
 </div>
 

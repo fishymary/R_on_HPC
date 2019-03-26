@@ -106,7 +106,8 @@ An example
 
 Give it a try
 ========================================================
-1. login to cluster  
+1. login to cluster 
+  
 ```
 ssh username@pod.cnsi.ucsb.edu
 ```
@@ -114,6 +115,53 @@ ssh username@pod.cnsi.ucsb.edu
 Give it a try
 ========================================================
 2. transfer input files  
+  
 ```
-scp file.txt user@knot.cnsi.ucsb.edu:file_copy.txt
+scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
 ```
+
+Lets also make a quick R code to run
+  
+```
+echo “data <- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,”testcsv.csv”,row.names=F)“ > myscript.R
+
+```
+
+
+Give it a try
+========================================================
+3. create a submission script  
+  
+```
+nano submit.job
+#!/bin/bash -l
+#Serial (1 core on one node) job...
+#SBATCH --nodes=1 --ntasks-per-node=1
+
+cd $SLURM_SUBMIT_DIR
+module load R
+Rscript myscript.R
+```
+
+Give it a try
+========================================================
+4. submit your job and check the status  
+  
+```
+sbatch submit.job
+qstat -u mdono
+```
+
+Give it a try
+========================================================
+5. wait for the magic  
+<iframe src="https://giphy.com/embed/hCiQVo1dzVwPu" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-waiting-hCiQVo1dzVwPu">via GIPHY</a></p>
+
+Give it a try
+========================================================
+6. transfer output files  
+  
+```
+scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+```
+

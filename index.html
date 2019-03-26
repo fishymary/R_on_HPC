@@ -795,13 +795,14 @@ hljs.initHighlightingOnLoad();
 <h3>Outline</h3>
 <div class="slideContent" >
 <ul>
-<li>What is high performance computing?</li>
-<li>Overview of UCSB resources</li>
-<li>Accessing pod and knot</li>
-<li>Running jobs</li>
-<li>Some specifics for R</li>
-<li>An example</li>
-<li>Give it a try</li>
+<li>What is high performance computing? (Sharon)</li>
+<li>Overview of UCSB resources (Sharon)</li>
+<li>Accessing pod and knot (Mary)</li>
+<li>Running jobs (Mary)</li>
+<li>Some specifics for R (Mary)</li>
+<li>An example (Mary)</li>
+<li>Give it a try (Mary)</li>
+<li>Demo</li>
 </ul>
 
 </div>
@@ -811,11 +812,12 @@ hljs.initHighlightingOnLoad();
 <h3>What is high performance computing?</h3>
 <div class="slideContent" >
 <ul>
-<li>Multiple computer notes, with fast interconnect, where each node consists of many CPU cores 
+<li>Multiple computer nodes, with fast interconnect, where each node consists of many CPU cores 
 (aka &ldquo;cluster&rdquo;)</li>
 <li>Allows multiple users to run computations simulataneously<br/></li>
 <li>Allows single users to access multiple cores and multiple nodes for parallel jobs<br/></li>
-<li>Can have high end GPUs (large amounts of memory)<br/></li>
+<li>Can have high end GPU nodes (specialized processors)</li>
+<li>Can have large memory nodes (approx 1TB RAM)</li>
 </ul>
 
 </div>
@@ -827,8 +829,8 @@ hljs.initHighlightingOnLoad();
 <p>Why and when to use HPC? </p>
 
 <ul>
-<li>Designed for when computational problems are either too large or take too long for standard computers</li>
-<li>When HPC might not be your solution:
+<li><p>Designed for when computational problems are either too large, take too long, and/or require large file storage for standard computers  </p></li>
+<li><p>When HPC might not be your solution:</p>
 
 <ul>
 <li>There’s lots of interaction with the program, and single runs (You need a really powerful desktop)</li>
@@ -846,7 +848,20 @@ hljs.initHighlightingOnLoad();
 <div class="slideContent" >
 <ul>
 <li>Serial vs. Parallel computing</li>
+<li>Serial:
+
+<ul>
+<li>one core on one node at a time</li>
+</ul></li>
+<li>Parallel:
+
+<ul>
+<li>many tasks can be performed at once that are independent</li>
+<li>or tasks can occur at the same time when &#39;boundry conditions&#39; match up</li>
+</ul></li>
 </ul>
+
+<p>Example: insert something here</p>
 
 </div>
 
@@ -855,16 +870,32 @@ hljs.initHighlightingOnLoad();
 <h3>Overview of UCSB resources</h3>
 <div class="slideContent" >
 <ul>
-<li>Enterprise Technology Services, Center for Scientific Computing 
+<li>Center for Scientific Computing 
 
 <ul>
 <li>pod cluster (2018), knot cluster (2011), braid (condo clusters)</li>
 </ul></li>
+<li>Letters and Science Information Technology 
+
+<ul>
+<li>Aristotle cloud cluster 
+
+<ul>
+<li>ideal for teaching e.g., Jypter notebooks</li>
+<li>presistent internet connection collected data</li>
+</ul></li>
+</ul></li>
 <li>Extreme Science and Engineering Discovery Environment (XSEDE)</li>
+<li>West coast consumer wide consumer grade GPU cluster (machine learning)
+
+<ul>
+<li>Nautilus cluster</li>
+</ul></li>
 <li>Triton Shared Computing Cluster (TSCC) at San Diego Supercomputing Center (SDSC)</li>
 </ul>
 
-<p>(more on CSC?)</p>
+<p>Please include in your papers! 
+&ldquo;We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797.&rdquo;</p>
 
 </div>
 
@@ -899,6 +930,19 @@ Braid (120 nodes, also has GPUs)  </p></li>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
+<h3>Overview of UCSB resources</h3>
+<div class="slideContent" >
+<p>More on storage:</p>
+
+<ul>
+<li>limit to 4TB-10TB</li>
+<li>and remove it when you&#39;re done! </li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
 <h3>Accessing pod and knot</h3>
 <div class="slideContent" >
 <ul>
@@ -921,7 +965,10 @@ Request access: <a href="http://csc.cnsi.ucsb.edu/acct">http://csc.cnsi.ucsb.edu
 <li>ls</li>
 <li>mkdir</li>
 <li>mv</li>
-<li>nano</li>
+<li>rm</li>
+<li>nano
+(link to SC here)
+.bash_history (up arrow, stores 1000 lines) more .bash_history | grep qsub</li>
 </ul>
 
 </div>
@@ -931,8 +978,13 @@ Request access: <a href="http://csc.cnsi.ucsb.edu/acct">http://csc.cnsi.ucsb.edu
 <h3>Running jobs</h3>
 <div class="slideContent" >
 <ul>
-<li>scheduler</li>
-<li>queues</li>
+<li>scheduler
+
+<ul>
+<li>fair share model</li>
+</ul></li>
+<li>queues
+<code>showq</code></li>
 </ul>
 
 </div>
@@ -958,7 +1010,7 @@ Request access: <a href="http://csc.cnsi.ucsb.edu/acct">http://csc.cnsi.ucsb.edu
 <li>create a submission script</li>
 <li>submit your job and check the status</li>
 <li>scheduler runs computation on compute nodes</li>
-<li>transfer output files </li>
+<li>examine and transfer output files </li>
 </ol>
 
 </div>
@@ -984,7 +1036,7 @@ Request access: <a href="http://csc.cnsi.ucsb.edu/acct">http://csc.cnsi.ucsb.edu
 <li>transfer input files<br/></li>
 </ol>
 
-<pre><code>scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+<pre><code>scp file.txt user@pod.cnsi.ucsb.edu:file_copy.txt
 </code></pre>
 
 <p>Lets also make a quick R code to run</p>
@@ -1035,7 +1087,7 @@ qstat -u mdono
 <div class="slideContent" >
 <ol>
 <li>wait for the magic<br/>
-[<iframe src="https://giphy.com/embed/hCiQVo1dzVwPu" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-waiting-hCiQVo1dzVwPu">via GIPHY</a></p>]<br/></li>
+<iframe src="https://giphy.com/embed/hCiQVo1dzVwPu" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-waiting-hCiQVo1dzVwPu">via GIPHY</a></p></li>
 </ol>
 
 </div>
@@ -1050,6 +1102,14 @@ qstat -u mdono
 
 <pre><code>scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
 </code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Remote login</h3>
+<div class="slideContent" >
+<p>UCSB VPN</p>
 
 </div>
 

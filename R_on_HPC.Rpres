@@ -1,23 +1,25 @@
 High Performance Computing with R @ UC Santa Barbara
 ========================================================
-author: Mary Donovan
+author: Mary Donovan and Sharon Solis
 date: April 9, 2019
 autosize: true
 
 Outline
 ========================================================
 
-- What is high performance computing? (Sharon)
-- Overview of UCSB resources (Sharon)
-- Accessing pod and knot (Mary)
-- Running jobs (Mary)
-- Some specifics for R (Mary)
-- An example (Mary)
-- Give it a try (Mary)
+- What is high performance computing?
+- Overview of UCSB resources
+- Accessing pod and knot
+- Running jobs
+- Some specifics for R
+- An example
+- Give it a try
 - Demo
 
 What is high performance computing?
 ========================================================
+![plot of chunk unnamed-chunk-2](R_on_HPC-figure/controller6_small-1.jpg)
+***
 - Multiple computer nodes, with fast interconnect, where each node consists of many CPU cores 
 (aka "cluster")
 - Allows multiple users to run computations simulataneously  
@@ -47,10 +49,7 @@ What is high performance computing?
   - many tasks can be performed at once that are independent
   - or tasks can occur at the same time when 'boundry conditions' match up
   
-Example: insert something here
   
-
-
 Overview of UCSB resources
 ========================================================
 - Center for Scientific Computing 
@@ -64,11 +63,9 @@ Overview of UCSB resources
   - Nautilus cluster
 - Triton Shared Computing Cluster (TSCC) at San Diego Supercomputing Center (SDSC)
 
-Please include in your papers! 
-"We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797."
-
 Overview of UCSB resources
 ========================================================
+left: 40%
 ![plot of chunk unnamed-chunk-2](R_on_HPC-figure/pod.png)
 ***
 - Campus available cluster Knot (CentOS/RH 6):  
@@ -86,18 +83,26 @@ GPU Development node (P100, 1080Ti, Titan V)
 Guild (60 nodes)  
 Braid (120 nodes, also has GPUs)  
 
-Overview of UCSB resources
-========================================================
-More on storage:
-- limit to 4TB-10TB
-- and remove it when you're done! 
-
-Accessing pod and knot
+Accessing UCSB Resources
 ========================================================
 - accounts  
 Request access: http://csc.cnsi.ucsb.edu/acct
+
+- Xsede: NSF sponsored service organization that provides
+access to computing resources.  
+
+Campus Champion (Sharon Solis): Represents XSEDE on the campus
+![xsed logo](R_on_HPC-figure/xsede_logo.png)
+
+Using the UCSB Clusters - Pod and Knot
+========================================================
+![plot of chunk unnamed-chunk-2](R_on_HPC-figure/pod.png)
+
+Using the UCSB Clusters - Pod and Knot
+========================================================
+![plot of chunk unnamed-chunk-2](R_on_HPC-figure/hpc_graphic.png)
 - login node versus compute nodes - don't run stuff on the login node!  
-- talk about storage systems?  
+- limit to 4TB-10TB in your home directory  and remove it when you're done! 
 - command line interface  
 
 Some basic commands
@@ -194,6 +199,12 @@ Give it a try
 scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
 ```
 
-Remote login
+Some tips
 ========================================================
-UCSB VPN
+- Remote login: UCSB VPN  
+- Try a small version of  your code on your computer first to make sure it runs from beginning to end.   
+- Be explicit about location of input and output files  
+- Please include in your papers! 
+"We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797."
+
+

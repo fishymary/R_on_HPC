@@ -1,0 +1,9 @@
+#!/bin/bash -l
+#SBATCH --nodes=1 --ntasks-per-node=20
+#SBATCH --mail-user=marydonovan@ucsb.edu
+#SBATCH --mail-type=start,end
+
+cd $SLURM_SUBMIT_DIR
+
+module load R
+Rscript parallel_trial.R

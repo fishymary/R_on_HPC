@@ -1,7 +1,5 @@
 #!/bin/bash -l
 #SBATCH --nodes=1 --ntasks-per-node=4
-#SBATCH --mail-user=marydonovan@ucsb.edu
-#SBATCH --mail-type=start,end
 
 cd $SLURM_SUBMIT_DIR
 

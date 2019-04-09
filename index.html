@@ -1052,6 +1052,16 @@ Rscript myscript.R
 showq | grep mdono
 </code></pre>
 
+<p>For the short queue: </p>
+
+<pre><code>sbatch -p short submit.job
+</code></pre>
+
+<p>If you need to cancel:</p>
+
+<pre><code>qdel job_id
+</code></pre>
+
 </div>
 
 </section>
@@ -1075,9 +1085,20 @@ showq | grep mdono
 <section data-transition="linear" data-transition-speed="default">
 <h3>Some specifics for R</h3>
 <div class="slideContent" >
+<p>to start R on the command line</p>
+
+<pre><code>module load R
+</code></pre>
+
+<p>check R version</p>
+
+<pre><code>which R
+</code></pre>
+
+<p>installing packages?   </p>
+
 <ul>
-<li>versions</li>
-<li>libraries</li>
+<li>on first go it will ask you to make a folder on your home directory, choose Y and pick your cran mirror</li>
 </ul>
 
 </div>
@@ -1090,8 +1111,9 @@ showq | grep mdono
 <li>Remote login: UCSB VPN<br/></li>
 <li>Try a small version of  your code on your computer first to make sure it runs from beginning to end.<br/></li>
 <li>Be explicit about location of input and output files<br/></li>
-<li>Please include in your papers! 
-&ldquo;We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797.&rdquo;</li>
+<li><p>For parallel stuff the <code>parallel</code> package is helpful  </p></li>
+<li><p>Please include in your papers! 
+&ldquo;We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797.&rdquo;</p></li>
 </ul>
 
 </div>
@@ -1101,6 +1123,8 @@ showq | grep mdono
 <h3>Demo</h3>
 <div class="slideContent" >
 <p>Your turn</p>
+
+<p>Try running  <code>test_my_skillz.R</code>  on pod</p>
 
 </div>
 

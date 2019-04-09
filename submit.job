@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --nodes=1 --ntasks-per-node=20
+#SBATCH --nodes=1 --ntasks-per-node=4
 #SBATCH --mail-user=marydonovan@ucsb.edu
 #SBATCH --mail-type=start,end
 

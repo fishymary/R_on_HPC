@@ -4,4 +4,4 @@
 cd $SLURM_SUBMIT_DIR
 
 module load R
-Rscript parallel_trial.R
+Rscript test_my_skillz.R

@@ -233,6 +233,12 @@ Demo
 ```
 ssh username@pod.cnsi.ucsb.edu
 git clone https://github.com/fishymary/R_on_HPC.git
+cd R_on_HPC
+cat submit.job
+sbatch -p short submit.job
+showq | grep [username]
+ls
+cat slurm-[jobid]
 ```
 
 ***

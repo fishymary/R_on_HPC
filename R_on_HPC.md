@@ -38,8 +38,6 @@ Why and when to use HPC?
   - You need 1,000 nodes, all the time (You need your own cluster)
   - You work with sensitive data
 
-  
-
 What is high performance computing?
 ========================================================
 - Serial vs. Parallel computing
@@ -157,7 +155,7 @@ scp file.txt user@pod.cnsi.ucsb.edu:file_copy.txt
 Lets also make a quick R code to run
   
 ```
-echo “data <- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,”testcsv.csv”,row.names=F)“ > myscript.R
+echo "data <- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,"testcsv.csv",row.names=F)" > myscript.R
 
 ```
 

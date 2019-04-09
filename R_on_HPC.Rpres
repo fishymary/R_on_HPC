@@ -18,6 +18,7 @@ Outline
 
 What is high performance computing?
 ========================================================
+left: 40%
 ![plot of chunk unnamed-chunk-2](R_on_HPC-figure/controller6_small-1.jpg)
 ***
 - Multiple computer nodes, with fast interconnect, where each node consists of many CPU cores 
@@ -52,20 +53,15 @@ Overview of UCSB resources
 ========================================================
 - Center for Scientific Computing 
   - pod cluster (2018), knot cluster (2011), braid (condo clusters)
-- Letters and Science Information Technology 
-  - Aristotle cloud cluster 
+- Letters and Science Information Technology - Aristotle cloud cluster 
       - ideal for teaching e.g., Jypter notebooks
       - presistent internet connection collected data
 - Extreme Science and Engineering Discovery Environment (XSEDE)
-- West coast consumer wide consumer grade GPU cluster (machine learning)
-  - Nautilus cluster
+- West coast consumer wide consumer grade GPU cluster (machine learning) - Nautilus cluster
 - Triton Shared Computing Cluster (TSCC) at San Diego Supercomputing Center (SDSC)
 
 Overview of UCSB resources
 ========================================================
-left: 40%
-![plot of chunk unnamed-chunk-2](R_on_HPC-figure/pod.png)
-***
 - Campus available cluster Knot (CentOS/RH 6):  
 110 node, ~1400 core system  
 4 ‘fat nodes’(1TB RAM)  
@@ -83,7 +79,7 @@ Braid (120 nodes, also has GPUs)
 
 Accessing UCSB Resources
 ========================================================
-- accounts  
+- for pod and knot accounts  
 Request access: http://csc.cnsi.ucsb.edu/acct
 
 - Xsede: NSF sponsored service organization that provides
@@ -92,15 +88,17 @@ access to computing resources.
 Campus Champion (Sharon Solis): Represents XSEDE on the campus
 ![xsed logo](R_on_HPC-figure/xsede_logo.png)
 
+
 Using the UCSB Clusters - Pod and Knot
 ========================================================
 ![plot of chunk unnamed-chunk-2](R_on_HPC-figure/pod.png)
+
 
 Using the UCSB Clusters - Pod and Knot
 ========================================================
 ![plot of chunk unnamed-chunk-2](R_on_HPC-figure/hpc_graphic.png)
 - login node versus compute nodes - don't run stuff on the login node!  
-- limit to 4TB-10TB in your home directory  and remove it when you're done! 
+- limit to 4TB-10TB in your home directory
 - command line interface  
 
 Some basic commands
@@ -112,23 +110,17 @@ Some basic commands
   - mv
   - rm
   - nano
-(link to SC here)
-.bash_history (up arrow, stores 1000 lines) more .bash_history | grep qsub
+  - (up arrow, stores 1000 lines)
 
-Running jobs
+To learn more
 ========================================================
-  - scheduler
-    - fair share model
-  - queues
-  `showq`
+Software Carpentry intro to Unix shell: http://swcarpentry.github.io/shell-novice/
 
-Some specifics for R
-========================================================
-  - versions
-  - libraries
 
-An example
+An example workflow
 ========================================================
+![plot of chunk unnamed-chunk-2](R_on_HPC-figure/hpc_graphic.png)
+***
 1. login to cluster
 2. transfer input files
 3. create a submission script
@@ -136,34 +128,33 @@ An example
 5. scheduler runs computation on compute nodes
 6. examine and transfer output files 
 
-Give it a try
+
+(1) login to cluster 
 ========================================================
-1. login to cluster 
-  
+
 ```
 ssh username@pod.cnsi.ucsb.edu
 ```
 
-Give it a try
+(2) transfer input files
 ========================================================
-2. transfer input files  
   
-```
-scp file.txt user@pod.cnsi.ucsb.edu:file_copy.txt
-```
-
-Lets also make a quick R code to run
-  
+Lets  make a quick R code to run
+On your computer in the terminal:  
 ```
 echo "data <- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,"testcsv.csv",row.names=F)" > myscript.R
 
+```  
+Now transfer that to pod:
+
+```
+scp myscript.R user@pod.cnsi.ucsb.edu:myscript.R
 ```
 
 
-Give it a try
+
+(3) create a submission script
 ========================================================
-3. create a submission script  
-  
 ```
 nano submit.job
 #!/bin/bash -l
@@ -175,37 +166,79 @@ module load R
 Rscript myscript.R
 ```
 
-Give it a try
+(4) submit your job and check the status  
 ========================================================
-4. submit your job and check the status  
-  
+
 ```
 sbatch submit.job
-qstat -u mdono
+showq | grep mdono
 ```
 
-Give it a try
+For the short queue: 
+```
+sbatch -p short submit.job
+```
+
+If you need to cancel:
+```
+qdel job_id
+```
+
+
+(5) wait...
 ========================================================
-5. wait...
 <iframe src="https://giphy.com/embed/d2qJhxeaaWXPG" width="480" height="357" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/queue-d2qJhxeaaWXPG">via GIPHY</a></p>
 
-Give it a try
+(6) transfer output files  
 ========================================================
-6. transfer output files  
-  
 ```
-scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+scp user@pod.cnsi.ucsb.edu:testcsv.csv ./testcsv.csv
 ```
+
+Some specifics for R
+========================================================
+to start R on the command line
+```
+module load R
+```
+check R version
+
+```
+which R
+```  
+installing packages?   
+- on first go it will ask you to make a folder on your home directory, choose Y and pick your cran mirror
+
 
 Some tips
 ========================================================
 - Remote login: UCSB VPN  
 - Try a small version of  your code on your computer first to make sure it runs from beginning to end.   
 - Be explicit about location of input and output files  
+- For parallel stuff the `parallel` package is helpful  
+
 - Please include in your papers! 
 "We acknowledge support from the Center for Scientific Computing from the CNSI, MRL: an NSF MRSEC (DMR-1720256) and NSF CNS-1725797."
 
+Demo
+========================================================
+Your turn: Try running on pod
+```
+test_my_skillz.R
+```
+(use the short queue)
 
 Demo
 ========================================================
-Your turn
+```
+ssh username@pod.cnsi.ucsb.edu
+git clone https://github.com/fishymary/R_on_HPC.git
+```
+
+***
+1. login to cluster
+2. transfer input files
+3. create a submission script
+4. submit your job and check the status
+5. scheduler runs computation on compute nodes
+6. examine and transfer output files 

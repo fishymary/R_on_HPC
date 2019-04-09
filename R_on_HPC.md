@@ -230,6 +230,7 @@ test_my_skillz.R
 
 Demo
 ========================================================
+left: 70%
 ```
 ssh username@pod.cnsi.ucsb.edu
 git clone https://github.com/fishymary/R_on_HPC.git

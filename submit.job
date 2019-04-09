@@ -1,0 +1,7 @@
+#!/bin/bash -l
+#SBATCH --nodes=1 --ntasks-per-node=4
+
+cd $SLURM_SUBMIT_DIR
+
+module load R
+Rscript test_my_skillz.R

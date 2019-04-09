@@ -1003,12 +1003,8 @@ access to computing resources.  </p></li>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(1) login to cluster </h3>
 <div class="slideContent" >
-<ol>
-<li>login to cluster </li>
-</ol>
-
 <pre><code>ssh username@pod.cnsi.ucsb.edu
 </code></pre>
 
@@ -1016,31 +1012,26 @@ access to computing resources.  </p></li>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(2) transfer input files</h3>
 <div class="slideContent" >
-<ol>
-<li>transfer input files<br/></li>
-</ol>
-
-<pre><code>scp file.txt user@pod.cnsi.ucsb.edu:file_copy.txt
-</code></pre>
-
-<p>Lets also make a quick R code to run</p>
+<p>Lets  make a quick R code to run
+On your computer in the terminal:  </p>
 
 <pre><code>echo &quot;data &lt;- data.frame(x=seq(1:10),y=seq(1:10)); write.csv(data,&quot;testcsv.csv&quot;,row.names=F)&quot; &gt; myscript.R
 
+</code></pre>
+
+<p>Now transfer that to pod:</p>
+
+<pre><code>scp myscript.R user@pod.cnsi.ucsb.edu:myscript.R
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(3) create a submission script</h3>
 <div class="slideContent" >
-<ol>
-<li>create a submission script<br/></li>
-</ol>
-
 <pre><code>nano submit.job
 #!/bin/bash -l
 #Serial (1 core on one node) job...
@@ -1055,38 +1046,27 @@ Rscript myscript.R
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(4) submit your job and check the status  </h3>
 <div class="slideContent" >
-<ol>
-<li>submit your job and check the status<br/></li>
-</ol>
-
 <pre><code>sbatch submit.job
-qstat -u mdono
+showq | grep mdono
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(5) wait...</h3>
 <div class="slideContent" >
-<ol>
-<li>wait&hellip;
-<iframe src="https://giphy.com/embed/d2qJhxeaaWXPG" width="480" height="357" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/queue-d2qJhxeaaWXPG">via GIPHY</a></p></li>
-</ol>
+<p><iframe src="https://giphy.com/embed/d2qJhxeaaWXPG" width="480" height="357" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/queue-d2qJhxeaaWXPG">via GIPHY</a></p></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Give it a try</h3>
+<h3>(6) transfer output files  </h3>
 <div class="slideContent" >
-<ol>
-<li>transfer output files<br/></li>
-</ol>
-
-<pre><code>scp file.txt user@pod.cnsi.ucsb.edu: file_copy.txt
+<pre><code>scp user@pod.cnsi.ucsb.edu:testcsv.csv ./testcsv.csv
 </code></pre>
 
 </div>
